@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Island Breeze - Beach Music Player</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bcdee",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101f22",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(16, 31, 34, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .wave-mask {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 C 150 100 350 0 500 50 C 650 100 850 0 1000 50 L 1000 100 L 0 100 Z" fill="black"/></svg>');
+            mask-size: 100% 100%;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-slate-100 antialiased overflow-hidden font-display">
+<!-- Immersive Background Image (Blurred Turquoise Ocean) -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10"></div>
+<img alt="Blurred turquoise ocean waves" class="w-full h-full object-cover scale-110 blur-xl opacity-80" data-alt="Blurred turquoise ocean waves under bright sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA08RLE3a9i7R7_0MaGkWv1X4FcAw9JEBv2CpuRrN30d4bblG23cG5s2-6sfO2F1_ed2JKNbgikp-1cyQXoGlOOrltHiCBqBxHIEe4wslg195NccU21xsZXJkywLSRwghS45R7Gd9gk21W0HSQyn9tjOUEVg6txq3DzptE59FbnMZiY88afVd-w1z7tJZ033n7UWJLEtMlNHVSpG9iDmi2uQoRmEY_tpHSmG63OA0_seH0hEt-RLlTrzd5ri3veQMd_AxWa_CGv1F9V"/>
+</div>
+<!-- Main Content Container -->
+<main class="relative z-20 flex flex-col h-screen w-full max-w-md mx-auto px-6 pt-12 pb-8 justify-between">
+<!-- Header Navigation -->
+<header class="flex items-center justify-between w-full">
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</button>
+<div class="text-center">
+<span class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Now Playing</span>
+<h1 class="text-sm font-semibold">Tropical Chill Radio</h1>
+</div>
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</header>
+<!-- Album Art Section -->
+<section class="flex-1 flex items-center justify-center py-8">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-xl scale-95 opacity-50"></div>
+<div class="relative aspect-square w-72 md:w-80 overflow-hidden rounded-xl shadow-2xl border border-white/10">
+<img alt="Island Breeze Album Cover" class="w-full h-full object-cover" data-alt="A tropical island with palm trees and clear water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWv2a1YvsyjKcDjot6ogn2vt2wXOG_a5ThpPKY7__yrV00k4wER7fuscXwRYPC-K7ktRL_j_f0_HRuHKHwJT2Y-o8tWpuPNQzE98ccUF-O33CTbyWiUMFufQdgkr3YrOOokPdMd1sWUqfYJThkCdBHLJraOk33iYR7QPWFMJ-yncekH3TilMJlEKIX1eRyj-3rrbXyRR3uvaClG_ygd65jXfWutGaXSu-TZbebxfVTQebn-csIFX3JUKA725ThrvbdKrkHcUhRWB09"/>
+</div>
+</div>
+</section>
+<!-- Track Information & Controls Panel -->
+<section class="space-y-8">
+<!-- Song Info -->
+<div class="text-center space-y-1">
+<h2 class="text-3xl font-bold tracking-tight">Island Breeze</h2>
+<p class="text-lg text-primary font-medium opacity-90">Tropical Waves</p>
+</div>
+<!-- Wave Progress Bar -->
+<div class="space-y-4">
+<div class="relative h-12 w-full flex items-center">
+<!-- Background Wave -->
+<svg class="absolute inset-0 w-full h-full opacity-20" preserveaspectratio="none" viewbox="0 0 1000 100">
+<path d="M0 50 C 150 100 350 0 500 50 C 650 100 850 0 1000 50" fill="transparent" stroke="white" stroke-width="4"></path>
+</svg>
+<!-- Active Wave (Played portion) -->
+<div class="absolute inset-0 overflow-hidden w-[45%]">
+<svg class="w-[222%] h-full" preserveaspectratio="none" viewbox="0 0 1000 100">
+<path d="M0 50 C 150 100 350 0 500 50 C 650 100 850 0 1000 50" fill="transparent" stroke="#2bcdee" stroke-width="6"></path>
+</svg>
+</div>
+<!-- Thumb Marker -->
+<div class="absolute left-[45%] -ml-2 size-4 bg-white rounded-full shadow-[0_0_15px_rgba(43,205,238,0.8)] border-2 border-primary"></div>
+</div>
+<div class="flex justify-between text-xs font-medium tracking-wider opacity-60 px-1">
+<span>1:42</span>
+<span>3:54</span>
+</div>
+</div>
+<!-- Playback Controls -->
+<div class="glass rounded-xl p-8 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<button class="text-slate-100/60 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">shuffle</span>
+</button>
+<div class="flex items-center gap-8">
+<button class="text-slate-100 hover:text-primary transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">skip_previous</span>
+</button>
+<button class="size-20 bg-primary text-background-dark rounded-full flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1">play_arrow</span>
+</button>
+<button class="text-slate-100 hover:text-primary transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">skip_next</span>
+</button>
+</div>
+<button class="text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">repeat</span>
+</button>
+</div>
+<!-- Secondary Actions -->
+<div class="flex items-center justify-between px-4 pt-2 border-t border-white/10">
+<button class="flex items-center gap-2 text-sm font-medium opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xl">devices</span>
+<span>Living Room</span>
+</button>
+<button class="flex items-center gap-2 text-sm font-medium opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xl">playlist_play</span>
+<span>Up Next</span>
+</button>
+</div>
+</div>
+</section>
+<!-- iOS Home Indicator Area -->
+<footer class="mt-4 flex justify-center">
+<div class="w-32 h-1.5 bg-white/20 rounded-full"></div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (Contextual) -->
+<nav class="fixed bottom-0 left-0 right-0 glass border-t-0 rounded-t-xl px-6 py-4 flex items-center justify-around z-30 lg:hidden">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-100/60 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-100/60 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">library_music</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-100/60 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+</a>
+</nav>
+</body></html>

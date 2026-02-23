@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hospital Project Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6927c9",
+                        "primary-hover": "#5e22b2",
+                        "background-dark": "#0c0416",
+                        "surface-dark": "#17092d",
+                        "surface-light": "#230d43",
+                        "text-primary": "#FFFFFF",
+                        "text-secondary": "#a997c3",
+                        "accent-green": "#0bda6f",
+                        "accent-orange": "#fa6c38",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0416; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b1670; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #521e9c; 
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-text-primary overflow-hidden h-screen flex">
+<!-- Sidebar -->
+<aside class="w-[260px] flex-shrink-0 flex flex-col bg-[#0c0416] border-r border-[#2f1159] h-full transition-all duration-300">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-gradient-to-br from-primary to-[#3b1670] aspect-square rounded-lg size-10 flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white">local_hospital</span>
+</div>
+<h1 class="text-white text-lg font-bold tracking-tight">Hospital</h1>
+</div>
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white py-3 px-4 rounded-lg font-semibold shadow-lg shadow-primary/20 transition-all mb-6">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Register patient</span>
+</button>
+</div>
+<nav class="flex-1 px-4 overflow-y-auto">
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#230d43] text-white border-l-4 border-primary shadow-md" href="#">
+<span class="material-symbols-outlined filled">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-[#17092d] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-white">folder</span>
+<span class="font-medium text-sm">Projects</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-[#17092d] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-white">check_box</span>
+<span class="font-medium text-sm">Tasks</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-[#17092d] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-white">bar_chart</span>
+<span class="font-medium text-sm">Reports</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="p-4 border-t border-[#2f1159]">
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-[#17092d] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-white">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-[#17092d] hover:text-red-400 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-red-400">logout</span>
+<span class="font-medium text-sm">Logout</span>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background-dark relative">
+<!-- Abstract Background Pattern -->
+<div class="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-[#521e9c]/10 blur-[100px] rounded-full pointer-events-none"></div>
+<!-- Header -->
+<header class="h-20 flex items-center justify-between px-8 border-b border-[#2f1159] bg-[#0c0416]/80 backdrop-blur-md z-10 shrink-0">
+<h2 class="text-xl font-bold text-white tracking-tight">Dashboard Overview</h2>
+<div class="flex-1 max-w-lg mx-8">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary group-focus-within:text-primary transition-colors material-symbols-outlined">search</span>
+<input class="w-full bg-[#17092d] border border-[#2f1159] rounded-lg py-2.5 pl-10 pr-4 text-sm text-white placeholder-text-secondary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search patients, doctors, records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 rounded-full hover:bg-[#230d43] text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full border border-[#0c0416]"></span>
+</button>
+<div class="h-8 w-[1px] bg-[#2f1159]"></div>
+<div class="flex items-center gap-3 cursor-pointer hover:bg-[#230d43] p-1.5 pr-3 rounded-full transition-colors">
+<img alt="Doctor profile portrait with blue background" class="size-8 rounded-full object-cover ring-2 ring-[#2f1159]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZRnUfvxEY2D7qAxzswfKsiF0I8ZHqfB7JiuqlOrVET7f9edqGubm-vvbYdDL65-mca1_ig23PKzOCv-c4LCB84a1UosDm09qbnpjC3T-AaCCZMiIiFzqYsyF1NGJIIrcd7CYLzqYGgrf3wIUODnfh_GawjHq-OdgHq_dtpIyAmbjTiVdIZQq877mu3UAKa2U1ro1AtRttORrVOev9WvBcsOhbSFa1LxJxNaMvSYVAXRq9ZTbvDAQJhXdYhI7Acl2FT8LoeYD1EFYX"/>
+<div class="hidden md:block">
+<p class="text-sm font-medium text-white leading-none">Dr. Sarah C.</p>
+<p class="text-xs text-text-secondary mt-0.5">Admin</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="flex-1 overflow-y-auto p-8 scroll-smooth">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Row 1: KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI 1 -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-5 hover:border-primary/50 transition-colors shadow-lg shadow-black/20 group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#230d43] rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<span class="flex items-center text-xs font-medium text-accent-green bg-accent-green/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                                +12%
+                            </span>
+</div>
+<h3 class="text-text-secondary text-sm font-medium">Total Patients</h3>
+<p class="text-2xl font-bold text-white mt-1">1,240</p>
+<p class="text-xs text-text-secondary mt-1">vs last month</p>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-5 hover:border-primary/50 transition-colors shadow-lg shadow-black/20 group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#230d43] rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<span class="flex items-center text-xs font-medium text-accent-green bg-accent-green/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                                +5%
+                            </span>
+</div>
+<h3 class="text-text-secondary text-sm font-medium">Total Appointments</h3>
+<p class="text-2xl font-bold text-white mt-1">3,402</p>
+<p class="text-xs text-text-secondary mt-1">vs last month</p>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-5 hover:border-primary/50 transition-colors shadow-lg shadow-black/20 group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#230d43] rounded-lg text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">prescriptions</span>
+</div>
+<span class="flex items-center text-xs font-medium text-accent-orange bg-accent-orange/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_down</span>
+                                -2%
+                            </span>
+</div>
+<h3 class="text-text-secondary text-sm font-medium">Total Prescriptions</h3>
+<p class="text-2xl font-bold text-white mt-1">5,100</p>
+<p class="text-xs text-text-secondary mt-1">vs last month</p>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-5 hover:border-primary/50 transition-colors shadow-lg shadow-black/20 group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#230d43] rounded-lg text-teal-400 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<span class="flex items-center text-xs font-medium text-accent-green bg-accent-green/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                                +8%
+                            </span>
+</div>
+<h3 class="text-text-secondary text-sm font-medium">Total Invoices</h3>
+<p class="text-2xl font-bold text-white mt-1">$120k</p>
+<p class="text-xs text-text-secondary mt-1">vs last month</p>
+</div>
+</div>
+<!-- Row 2: Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Outpatients vs Inpatients Trends -->
+<div class="lg:col-span-2 bg-surface-dark border border-[#2f1159] rounded-xl p-6 shadow-lg shadow-black/20">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div>
+<h3 class="text-lg font-semibold text-white">Outpatients vs Inpatients Trends</h3>
+<p class="text-sm text-text-secondary">Patient visits over time</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-[#230d43] rounded-lg border border-[#2f1159]">
+<div class="size-2 rounded-full bg-primary"></div>
+<span class="text-xs text-text-secondary">Inpatients</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-[#230d43] rounded-lg border border-[#2f1159]">
+<div class="size-2 rounded-full bg-[#a997c3]"></div>
+<span class="text-xs text-text-secondary">Outpatients</span>
+</div>
+<select class="bg-[#230d43] border border-[#2f1159] text-white text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-primary cursor-pointer">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+</div>
+<!-- Chart Area -->
+<div class="relative h-[240px] w-full">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 50">
+<!-- Grid Lines -->
+<line stroke="#2f1159" stroke-dasharray="2" stroke-width="0.2" x1="0" x2="100" y1="10" y2="10"></line>
+<line stroke="#2f1159" stroke-dasharray="2" stroke-width="0.2" x1="0" x2="100" y1="20" y2="20"></line>
+<line stroke="#2f1159" stroke-dasharray="2" stroke-width="0.2" x1="0" x2="100" y1="30" y2="30"></line>
+<line stroke="#2f1159" stroke-dasharray="2" stroke-width="0.2" x1="0" x2="100" y1="40" y2="40"></line>
+<!-- Gradient Definition -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#6927c9" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#6927c9" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Inpatients Path (Filled) -->
+<path d="M0,35 C10,32 20,40 30,25 C40,10 50,15 60,20 C70,25 80,15 90,10 L100,15 L100,50 L0,50 Z" fill="url(#chartGradient)"></path>
+<!-- Inpatients Path (Stroke) -->
+<path d="M0,35 C10,32 20,40 30,25 C40,10 50,15 60,20 C70,25 80,15 90,10 L100,15" fill="none" stroke="#6927c9" stroke-width="0.8"></path>
+<!-- Outpatients Path (Stroke) -->
+<path d="M0,40 C10,38 20,42 30,35 C40,28 50,32 60,30 C70,28 80,35 90,25 L100,20" fill="none" stroke="#a997c3" stroke-dasharray="2" stroke-width="0.8"></path>
+</svg>
+<!-- X Axis Labels -->
+<div class="flex justify-between text-xs text-text-secondary mt-2 px-1">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+<!-- Patients by Gender -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-6 shadow-lg shadow-black/20 flex flex-col">
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-white">Patients by Gender</h3>
+<p class="text-sm text-text-secondary">Demographic distribution</p>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center relative">
+<div class="relative size-48">
+<svg class="w-full h-full rotate-[-90deg]" viewbox="0 0 36 36">
+<!-- Background Circle -->
+<path class="text-[#230d43]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.8"></path>
+<!-- Female Segment (purple) -->
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="55, 100" stroke-width="3.8"></path>
+<!-- Male Segment (light purple/grey) -->
+<path class="text-[#a997c3]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="35, 100" stroke-dashoffset="-55" stroke-width="3.8"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-bold text-white">1,240</span>
+<span class="text-xs text-text-secondary">Patients</span>
+</div>
+</div>
+<div class="flex w-full justify-center gap-6 mt-6">
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-2 mb-1">
+<div class="size-2.5 rounded-full bg-primary"></div>
+<span class="text-xs text-text-secondary">Female</span>
+</div>
+<span class="text-sm font-bold text-white">55%</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-2 mb-1">
+<div class="size-2.5 rounded-full bg-[#a997c3]"></div>
+<span class="text-xs text-text-secondary">Male</span>
+</div>
+<span class="text-sm font-bold text-white">35%</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-2 mb-1">
+<div class="size-2.5 rounded-full bg-[#230d43]"></div>
+<span class="text-xs text-text-secondary">Other</span>
+</div>
+<span class="text-sm font-bold text-white">10%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Detail Charts -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Admitted vs Discharged -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-6 shadow-lg shadow-black/20">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-base font-semibold text-white">Admitted vs Discharged</h3>
+<div class="bg-[#230d43] rounded p-1">
+<span class="material-symbols-outlined text-text-secondary text-sm">more_horiz</span>
+</div>
+</div>
+<div class="h-[150px] w-full flex items-end gap-2">
+<!-- Bars Group 1 -->
+<div class="flex-1 flex flex-col justify-end gap-1 h-full group">
+<div class="w-full bg-[#230d43] rounded-t-sm h-[40%] group-hover:bg-[#2f1159] transition-all"></div>
+<div class="w-full bg-primary rounded-t-sm h-[60%] group-hover:bg-primary-hover transition-all"></div>
+</div>
+<!-- Bars Group 2 -->
+<div class="flex-1 flex flex-col justify-end gap-1 h-full group">
+<div class="w-full bg-[#230d43] rounded-t-sm h-[30%] group-hover:bg-[#2f1159] transition-all"></div>
+<div class="w-full bg-primary rounded-t-sm h-[50%] group-hover:bg-primary-hover transition-all"></div>
+</div>
+<!-- Bars Group 3 -->
+<div class="flex-1 flex flex-col justify-end gap-1 h-full group">
+<div class="w-full bg-[#230d43] rounded-t-sm h-[50%] group-hover:bg-[#2f1159] transition-all"></div>
+<div class="w-full bg-primary rounded-t-sm h-[70%] group-hover:bg-primary-hover transition-all"></div>
+</div>
+<!-- Bars Group 4 -->
+<div class="flex-1 flex flex-col justify-end gap-1 h-full group">
+<div class="w-full bg-[#230d43] rounded-t-sm h-[45%] group-hover:bg-[#2f1159] transition-all"></div>
+<div class="w-full bg-primary rounded-t-sm h-[65%] group-hover:bg-primary-hover transition-all"></div>
+</div>
+<!-- Bars Group 5 -->
+<div class="flex-1 flex flex-col justify-end gap-1 h-full group">
+<div class="w-full bg-[#230d43] rounded-t-sm h-[35%] group-hover:bg-[#2f1159] transition-all"></div>
+<div class="w-full bg-primary rounded-t-sm h-[45%] group-hover:bg-primary-hover transition-all"></div>
+</div>
+</div>
+<div class="flex justify-between text-xs text-text-secondary mt-3">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+</div>
+</div>
+<!-- Patients by Division -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-6 shadow-lg shadow-black/20">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-base font-semibold text-white">Patients by Division</h3>
+<button class="text-xs text-primary font-medium hover:text-white transition-colors">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="group">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white group-hover:text-primary transition-colors">Cardiology</span>
+<span class="text-text-secondary">40%</span>
+</div>
+<div class="w-full bg-[#230d43] rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white group-hover:text-primary transition-colors">Neurology</span>
+<span class="text-text-secondary">25%</span>
+</div>
+<div class="w-full bg-[#230d43] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#8b5cf6] h-full rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white group-hover:text-primary transition-colors">Surgery</span>
+<span class="text-text-secondary">20%</span>
+</div>
+<div class="w-full bg-[#230d43] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#a78bfa] h-full rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white group-hover:text-primary transition-colors">Pediatrics</span>
+<span class="text-text-secondary">15%</span>
+</div>
+<div class="w-full bg-[#230d43] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#c4b5fd] h-full rounded-full" style="width: 15%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Patients This Month -->
+<div class="bg-surface-dark border border-[#2f1159] rounded-xl p-6 shadow-lg shadow-black/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex flex-col h-full justify-between">
+<div>
+<h3 class="text-base font-semibold text-white">New Patients</h3>
+<p class="text-sm text-text-secondary mt-1">April 2024</p>
+</div>
+<div class="flex items-end gap-3 my-4">
+<h2 class="text-4xl font-bold text-white tracking-tight">482</h2>
+<span class="flex items-center text-xs font-medium text-accent-green bg-accent-green/10 px-2 py-1 rounded-full mb-1.5">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                                    +15%
+                                </span>
+</div>
+<div class="relative h-[60px]">
+<!-- Sparkline simulated with SVG -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0,25 C10,25 15,10 25,15 C35,20 40,5 50,10 C60,15 65,5 75,20 C85,35 90,5 100,0" fill="none" stroke="#6927c9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<circle class="fill-white stroke-primary stroke-2" cx="100" cy="0" r="3"></circle>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Spacer -->
+<div class="h-8"></div>
+</div>
+</main>
+</body></html>

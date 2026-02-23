@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beach Music Library Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bcdee",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101f22",
+                        "sand": "#e8d5c4",
+                        "ocean-dark": "#0a1518",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "serif": ["DM+Serif+Display", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Section -->
+<header class="pt-14 pb-4 px-6 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+<div class="flex justify-between items-center mb-6">
+<h1 class="text-3xl font-serif tracking-wide text-slate-900 dark:text-slate-100">Your Paradise</h1>
+<div class="flex gap-4">
+<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3 bg-slate-200/50 dark:bg-primary/10 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/50 placeholder-slate-500 dark:placeholder-slate-400" placeholder="Search your library" type="text"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto px-6 pb-32">
+<!-- Categories Grid -->
+<div class="grid grid-cols-3 gap-3 my-6">
+<div class="flex flex-col items-center justify-center p-4 rounded-xl bg-primary/10 dark:bg-primary/5 border border-primary/20 hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl mb-2">palm_logo</span>
+<span class="text-xs font-semibold uppercase tracking-wider">Playlists</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 rounded-xl bg-primary/10 dark:bg-primary/5 border border-primary/20 hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl mb-2">shield</span>
+<span class="text-xs font-semibold uppercase tracking-wider">Albums</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 rounded-xl bg-primary/10 dark:bg-primary/5 border border-primary/20 hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl mb-2">cloud_download</span>
+<span class="text-xs font-semibold uppercase tracking-wider">Offline</span>
+</div>
+</div>
+<!-- Recently Played Section -->
+<div class="flex justify-between items-end mb-4">
+<h2 class="text-xl font-bold">Back to the Shore</h2>
+<button class="text-sm font-medium text-primary hover:underline">See all</button>
+</div>
+<div class="space-y-4">
+<!-- Song Item 1 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-16 h-16 shrink-0">
+<img alt="Beach at sunset with gentle waves" class="w-full h-full object-cover rounded-lg shadow-md" data-alt="Beach at sunset with gentle waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTbmbOfk8oQaTmG439g4Turp_i07ZiXQ7qm1wtHqb1Jcbz7fjAOPw1SuXdWPKaDDyFEur9hyIno9cIwMI6odz-b0Yd2zibcj3vy7nQvttI7afZzYU45iFVOzx-tr0nBNzxVBGazFoujCxm1w6a1JTK1PWRoNJq7mamHFTQJ2Ly46QOko_9LDJU2rqSfbgpgqGGRDfpp0b9d_WREg24DVhTOY78BEqjfcCOpvcgY5UXsIDMBQAQmgujecZrpCDqS8CGclzzvlxwp0pP"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-lg transition-opacity">
+<span class="material-symbols-outlined text-white active-icon">play_arrow</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-bold text-base truncate">Sunset Drift</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">The Waves • Acoustic Dreams</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Song Item 2 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-16 h-16 shrink-0">
+<img alt="Blue tropical ocean water from above" class="w-full h-full object-cover rounded-lg shadow-md" data-alt="Blue tropical ocean water from above" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJPdAOXC77DJT4bi7CS_mn98K8fdhnKEhn4fDhJr9wmlfDEzqRdgvS5nnQKnVQSxTa0amOruX_kFc9SagbI3sBl6Ad7G85-DP0RgXynbIYO7FRPb6U3-KJk7qtLu-k_R9bqdeP8-aQWoM9hwFiZp-kpDQkktYJMaaCWjoeFoB2bMDRG_kTWVZwRzRxp2UwqhWjDTaZpceJJdSQker3TX_mzFqY98PfB1w967Owapj4jRYCaadJ3F_l4PE3eU3JkyhsBXq7_BY1UTqq"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-lg transition-opacity">
+<span class="material-symbols-outlined text-white active-icon">play_arrow</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-bold text-base truncate">Azure Horizon</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">Coral Reefs • Oceanic Pulse</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Song Item 3 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-16 h-16 shrink-0">
+<img alt="Palm trees silhouette against pink sky" class="w-full h-full object-cover rounded-lg shadow-md" data-alt="Palm trees silhouette against pink sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIfk2-rbHHhjhG7oCQvehNVx1aufztXNlXjSX0rQo1jqqBKi4Vv-BaoQQJ78VBlrrVMdvle4KrXrwn5zMKafBZ8GSfgiXqKTXdSfmoJcHAv7oC14AOu6nJ8HSCqfNDYZS-8I878rsqDGSWqFyoLCH-SEYcZUxb2ohxpczy3AWzbrNTUiEuyh3zYIGoM2Guz5ZW3TM0QPE9evWDwz02xlhiWw3PLHHumA3aSD8wJmaCSW993j11EyrkjPtkKCOVAEsWYrCm1gjyD3HB"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-lg transition-opacity">
+<span class="material-symbols-outlined text-white active-icon">play_arrow</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-bold text-base truncate">Palm Breeze</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">Island Vibes • Summer Nights</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Song Item 4 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative w-16 h-16 shrink-0">
+<img alt="Sea shells on fine white sand" class="w-full h-full object-cover rounded-lg shadow-md" data-alt="Sea shells on fine white sand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCndEL3X-HEyk6qXCxBwc9WQLRhdWM0kI5M8XGyLcxF6K2MaL2_qI2OH02U6zM5exuIkAq0i8eo4c1Uqqez5YrJkg6g_rc2kAr6IupF_V8E5GpAyR_1m0cyheuNvNmq-ITJY48ZeKR8gRk-XaS0WHf3J0r43arQ9dI80Rd-epEw_ZBnkhm1S1vNnQZUrEPWx-m8uFCxwqtMlXg8g5BNP5EzrsAS0Tf7BXhdvgHvmmn8ZpNeP10I_23hxptzhesT9HsNi61ebMTNrq5Y"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-lg transition-opacity">
+<span class="material-symbols-outlined text-white active-icon">play_arrow</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-bold text-base truncate">Saltwater Memories</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">The Coast • Wind &amp; Sand</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Mini Player -->
+<div class="fixed bottom-24 left-4 right-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-primary/20 rounded-xl p-3 flex items-center gap-4 shadow-2xl z-20">
+<img alt="Mini player art" class="w-12 h-12 rounded-lg" data-alt="Small beach landscape thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArcDXfugEm8LZ5Yv5-xLGpYuvm_ikN9wZ7BbuXX1ZKZ7bARpL7SPCsIucHEqwBakAsfyswudSSw4f_BptKIUZwWSaYYhIJjMxQ5Q2DFr1ey8SjQvayuMogPsIRhCkgFu_TnoWSSg3HeJoytRqhVxgOJpkf7EcnTbIuLqFN0NqJsPItVbIRCm7qMiOoWV_gNDIk-oY_nEHW2kdjPQG78gVZSk5SNDb8j9nRlsvoYw6vz0Xt_3voCoVUInkewPYjgr5c9fmV2Kh8GQfS"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Sunset Drift</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">The Waves</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">devices</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined active-icon">pause</span>
+</button>
+</div>
+</div>
+<!-- Navigation Bar -->
+<nav class="fixed bottom-0 w-full bg-background-light dark:bg-ocean-dark border-t border-slate-200 dark:border-primary/10 px-6 pb-8 pt-2 z-30">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined active-icon">library_music</span>
+<span class="text-[10px] font-bold">Library</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

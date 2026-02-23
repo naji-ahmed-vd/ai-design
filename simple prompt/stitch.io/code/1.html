@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beach Music Discover Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bcdee",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101f22",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .sunset-gradient {
+            background: linear-gradient(180deg, #ff9a8b 0%, #ff6a88 33%, #ff99ac 66%, #2bcdee 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex justify-center items-center">
+<!-- Mobile Container (iPhone Pro Max form factor roughly) -->
+<div class="relative w-full max-w-[430px] h-[932px] overflow-hidden bg-background-dark shadow-2xl flex flex-col sunset-gradient">
+<!-- Top Status Bar Spacer (iOS Style) -->
+<div class="h-12 w-full"></div>
+<!-- Header -->
+<header class="px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary/50 p-0.5">
+<img alt="User profile" class="w-full h-full object-cover rounded-full" data-alt="Close up portrait of a smiling woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClIX6ill4OQ8AoCMKubEPukIpCqXs3ySXgX4wsCurLrliyqBKwZDJ1SU61ERoYtkdnyKhGBn0p8QtNEtwVC2a15wYgHCL5vziCDpCjQ1hjgUR5kJud3BV_Zazva6DTBTC4hi6CIAjYwmm4WiXAy933Fhd7q1z-oyFXep1YvdWe-CY2uB8GzaLeknsRTi8JiCBFivK48b5rWrpY6nbg4rVJpYWBkoj7FIZKo-imM8ld5pUIfhqWW_fpekUkXEbOys7SDzzA2NtZoEMQ"/>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-white/70 font-semibold">Good Evening</p>
+<h1 class="text-xl font-bold text-white leading-tight">Alex 🌴</h1>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<!-- Main Scrollable Area -->
+<main class="flex-1 overflow-y-auto hide-scrollbar px-6 pb-32">
+<!-- Quick Filters -->
+<div class="flex gap-3 py-4 overflow-x-auto hide-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center rounded-full bg-primary px-5 shadow-lg shadow-primary/20">
+<p class="text-slate-900 text-sm font-bold leading-normal">Tropical</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center rounded-full glass-card px-5">
+<p class="text-white text-sm font-medium leading-normal">Reggae</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center rounded-full glass-card px-5">
+<p class="text-white text-sm font-medium leading-normal">Surf Rock</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center rounded-full glass-card px-5">
+<p class="text-white text-sm font-medium leading-normal">Lo-fi</p>
+</div>
+</div>
+<!-- Featured Playlists -->
+<section class="mt-4">
+<h2 class="text-lg font-bold text-white mb-4">Vibe Check</h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="relative group aspect-[4/5] rounded-xl overflow-hidden shadow-xl">
+<img alt="Beach Party" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="People dancing on a white sand beach at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvIyFMFbOTBAkfhIxR4JFe1K8w8m3mYTITn8C_5pEBguEiN_DlXa9T27412hnhIXubKrlQpdldEIQBBN4KiTs5MBNByrVuD9FH89w6RRJEow8kde2gMb2ocZUzbqHDxj1isYa7WUObp2ejrpfQ5XZQgWFvsNioE4S4NyUD9CAMNIMQclhj1e8cHv0E-PG8NlXbJfJC7PHPnLcn8xVhjELbmNf_XQeb6BgetMbHkjuBB2Xy6ZTc66uBLZPw3R6Dk8eUMw4Mo7-bDtos"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-white font-bold text-lg leading-tight">Beach Party</h3>
+<p class="text-white/70 text-xs">High Energy Beats</p>
+</div>
+<div class="absolute top-3 right-3">
+<span class="material-symbols-outlined text-primary drop-shadow-md">favorite</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="relative group aspect-[4/5] rounded-xl overflow-hidden shadow-xl">
+<img alt="Sunset Chill" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Empty calm ocean beach during golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzFZ-r9W-u0jMrtV1h3EoYA52qxFIiOMG3IhIwaE1j9XtMgog2ijMu_f48Kqh13Z9LZEpUJ9YXjtgZxRtkh3KE2My9SthJ0EJVuCmuSh15L-sjZCv4B-hrh6br-Ihd0ksv0pPj_GjfKvMqZWSdZIAd2UYQYKWH9xGI3dovoKtYLPaUI4P4dNHMJHZVPID6vzN6_whlnLR6koKX7-uw_t4oqn-BGlZfFtT4-MxWeGSNhWcHlEauYrQOjF3HkBCtFiVHMHVZPkisoVs0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-white font-bold text-lg leading-tight">Sunset Chill</h3>
+<p class="text-white/70 text-xs">Lo-fi &amp; Acoustic</p>
+</div>
+<div class="absolute top-3 right-3">
+<span class="material-symbols-outlined text-white/50">favorite</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Artists -->
+<section class="mt-8">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold text-white">Trending on the Coast</h2>
+<a class="text-xs font-bold text-primary" href="#">See All</a>
+</div>
+<div class="flex gap-5 overflow-x-auto hide-scrollbar pb-2">
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-20 h-20 rounded-full p-1 ring-2 ring-primary">
+<img alt="Artist" class="w-full h-full object-cover rounded-full" data-alt="Professional headshot of a male musician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwHsNsB4D0kX7lS-r7OI560K3hU7eMPJQjB3IsvNkgzLCo78mONYhbzwQt7QaMSQB1MzlFXtPXdT59J_gQCl_qgw1rqLG0C_UfMQTNOpBReWIWSN2DH3MjUKgnvGPtvvpm0Fns3mzr6zVxXRkU7UG6xTo_oxbAhlzJedsiRgYsWnkPJbuygTcGQ1woSg27lwaPQ97gCNvkCozIaFdOD4bc-h1bwk8RLT0QAikZMvfmzAUTstOzTXpitn8_dblfLBWGkLMoCY1MPXbx"/>
+</div>
+<span class="text-xs font-medium text-white">Kai Bay</span>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-20 h-20 rounded-full p-1 ring-1 ring-white/20">
+<img alt="Artist" class="w-full h-full object-cover rounded-full" data-alt="Smiling woman with curly hair outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBovj8sTq6GHSPKtFuFukXRwJnqXQQeWQzA4YErmx9f8dushDHbIq_gBlxk1EnVtpTad6nFH-W2S61j9tyepFQEDqWnI6q5-1vT-ihVOU6BVrJ-QGpZAsF3_CV9_JK0rg9WWKZx-ktpGS6dJ4Tk3KMlJpdzT-ZSbjhZNuplgff82aMffijv-mwCTpeGmobkkPmj443FtuRQsOQcFagtA34j_JZjrN8erE2FkvB-aZeNf2CtfmPzSE4QfuW6dUfrZCYmdo9lXzMd4W0m"/>
+</div>
+<span class="text-xs font-medium text-white">Luna Sol</span>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-20 h-20 rounded-full p-1 ring-1 ring-white/20">
+<img alt="Artist" class="w-full h-full object-cover rounded-full" data-alt="Young man standing in front of palm trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1GSTsrQ6iC1nF8gd9tg2MZmuhf84TmN60YRm6f1KQ4q8qAr3vvMa3LeKMFFE1i6G2UgGs9lNsxEZrGiXd7AIeaN4yXpcwHs83RZj44InTyg6Ij4JifQEeybF9yVkjo3bz3aMGpbNBUizKJYEIdHb489hqiL3M46RoTzRvJIF5G7HKhK4geqn8lrcNf55hMIvkWU0nNWztfEMIG6RNe01fVbDuxBtFyc9Bh0x4glYHZ_La3tczRhoyJNmWn1KwPFQgfidSmpMhNe_x"/>
+</div>
+<span class="text-xs font-medium text-white">Zion Beats</span>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-20 h-20 rounded-full p-1 ring-1 ring-white/20">
+<img alt="Artist" class="w-full h-full object-cover rounded-full" data-alt="Casual portrait of a man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3FPlma_ieoouCHEhxYMpe6hc4tCeJPLBTh3UWsOeombrtGmtFhuP6rYxk1Q7qskTdUrL1vJNM6JRRyz7Ly1LKwy3nYaTq-rqF8mw3l-jupTJ0L2STY3MQ_lipk_fpyY6IEl9OVEI7fpTNGjq7Wcxkst4Oc-kDNTHk7AQ9dUZWalTsIOSIW1LNdaiG1phDCsCdEO5fCst_ac1x05QRZFmSTtEOwEweTwAqsnxzz9I7j2dPar2EdPeP12qxcRySGcn_D51QkmCk9Fcn"/>
+</div>
+<span class="text-xs font-medium text-white">Malibu Joy</span>
+</div>
+</div>
+</section>
+<!-- Recently Played / Recommendations -->
+<section class="mt-8">
+<h2 class="text-lg font-bold text-white mb-4">Island Vibes Pick</h2>
+<div class="glass-card rounded-xl p-4 flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Album Art" class="w-full h-full object-cover" data-alt="Close up of a turquoise ocean wave crashing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPSJh0T0Ywj1tqHkC3kQn1HnOMZT5105uh5DSJNKroqdm2SYrAGh0qLV2y7PlUw0uFqU3jmRsR5qF4EKTGPYv77-ePNpqyqwliJebIerzcSiw-XNRWEYYdDei24PwLK8OpxGy-WgGxXHqSVuoKzxSVLWa1CQ_vazqUzNMSKblcA0tR87JCO5VZw0nsZrdPCwO_XynmGLVNwAbHxK53Vo9Fh77zbXc-OdDfAs5WNYCifUbeqkykQDCEJlDbKals5Is58Jebv36kieKe"/>
+</div>
+<div class="flex-1">
+<h4 class="text-white font-bold">Midnight Lagoon</h4>
+<p class="text-white/60 text-sm">Deep Tropical House • 3:45</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-slate-900">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Player Bar & Navigation -->
+<div class="absolute bottom-0 left-0 right-0 px-4 pb-6 pt-2">
+<!-- Mini Player -->
+<div class="mb-4 glass-card rounded-2xl p-3 flex items-center gap-3 shadow-2xl">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-slate-800 shrink-0">
+<img alt="Current song" class="w-full h-full object-cover" data-alt="Silhouette of palm trees against a pink sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbpe1SU0TX-2napGip1CHUedesMAES-IKyCpmSI1e8hOF4oVKEVc7U7AtCpqRRBRgcHS__CspTzQULDRA2oTFSytD80Xmu9j4EZxE1WkwpCvBDy-WmJ5Y2CgvnsttQCh1Z9tvQl9eWkbsqHT0mBLr4fHzSMhYBPdM5PIWbpRP_zSvOxivo88mlnhjYlXeC1HC-j7YL2OU5QGjr8R2u0S-eiOh8EQDk6q05dByrxVnhgLrSPhIipziD0e9Jb1DNt1x0eRMcFCxFxJCz"/>
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="text-white text-sm font-bold truncate">Summer Sands</h5>
+<div class="w-full bg-white/10 h-1 rounded-full mt-1 overflow-hidden">
+<div class="bg-primary h-full w-1/3 rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 text-white"><span class="material-symbols-outlined">skip_previous</span></button>
+<button class="p-1 text-white"><span class="material-symbols-outlined text-3xl">pause</span></button>
+<button class="p-1 text-white"><span class="material-symbols-outlined">skip_next</span></button>
+</div>
+</div>
+<!-- Navigation Bar -->
+<nav class="glass-card rounded-full h-16 flex items-center justify-around px-2 shadow-xl">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">explore</span>
+<span class="text-[10px] font-bold">Discover</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="text-[10px] font-medium">Library</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+</div>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</body></html>

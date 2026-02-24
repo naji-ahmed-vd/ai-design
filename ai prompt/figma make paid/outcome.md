@@ -14,4 +14,4 @@ https://www.figma.com/make/YBpBORTi8wuLeVfM2EXUlm/E-commerce-Landing-Page-Design
 
 ## Cons
 
-1. It produced very simple and depression site design where as the same prompt on free version created a much better
+1. It produced very simple site design where as the same prompt on free version created a much better

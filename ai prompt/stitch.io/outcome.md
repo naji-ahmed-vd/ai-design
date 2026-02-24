@@ -12,7 +12,7 @@ https://stitch.withgoogle.com/projects/5390048704454661437
 
 ## Cons
 
-1. Some minor fixes that will be needed in code and some things were not proper ux  
+1. Some minor fixes that will be needed in code and some things were not proper UX.
 
 ## Outcome
 
